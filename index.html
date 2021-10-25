@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Barras Praderas</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+</head>
+<body>
+	<div id="Linea"></div>
+	<div id="Header">
+		<div id="Texto1">
+			<div id="Encabezado">
+				<h2>Las Barras Praderas</h2>
+				<br>
+				<p>
+				   No eres lo que logras, eres lo que superas.
+				</p>
+			</div>
+		</div>
+	</div>
+	<section class="container text-center" id="clases">
+		<div id="Bienvenida">
+		<div id="Texto2">
+			<div id="Lado1">
+				<div class="row">
+					<article class="col-9 offset-0">
+						<h3>Nuevo Producto</h3>
+						<label>Nombre</label>
+						<input type="text" class="form-control my-3" v-model="nuevoProducto"/>
+						<label>Cantidad</label>
+						<input type="number" class="form-control my-3" v-model="nuevaCantidad"/>
+						<label>Precio</label>
+						<input type="number" class="form-control my-3" v-model="nuevoPrecio"/>
+						<button class="btn btn-primary" @click=agregar>Agregar</button>
+					</article>
+				</div>
+			</div>
+
+			<div id="Lado2">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				  <ol class="carousel-indicators">
+				    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner">
+				    <div class="carousel-item active">
+				      <img src="imagenes/Suplemento_1.jpg" class="d-block w-100 h-500" alt="...">
+				    </div>
+				    <div class="carousel-item">
+				      <img src="imagenes/Suplemento_2.jpg" class="d-block w-100 h-500" alt="...">
+				    </div>
+				    <div class="carousel-item">
+				      <img src="imagenes/Suplemento_3.jpg" class="d-block w-100 h" alt="...">
+				    </div>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
+			</div>
+		</div>
+		<div id="Contenido">
+			<div id="Texto3">
+				<div id="Lateral1">
+					<div class="row">
+						<article class="col-6 offset-1">
+							<ul class="list-unstyled text-center">
+								<li :class="{stock:products.stock}"
+									@click="stockProducto(products)"
+									v-for="products in productos">
+									<label>Nombre Producto:</label>
+										{{products.titulo}}-----{{products.stock}}
+								</li>
+								<li v-for="cants in cantidades">
+									<label>Cantidad:</label>
+									{{cants.cantidad}}
+								</li>
+								<li v-for="prec in costos">
+									<label>Precio Unitario:</label>
+									{{prec.precio}}
+								</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+			<h3 class="col-6 offset-3">Tareas completadas {{tareasCompletadas}}</h3>
+		</div>
+		<div class="row">
+			<article class="col-6 offset-3">
+				<button class="btn-primary" @click="contador++" :disabled="contador==100">+</button>
+				<button class="btn-danger" @click="contador--" :disabled="contador==0">-</button>
+				<h3>{{contador}}</h3>
+				<div class="progress mb-2">
+					<div class="progress-bar bg-success" role="progressbar" :style="{'width' :contador+'%'}" :class="color">
+						{{contador}}%
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
+	</section>
+<script src="js/evj5.js"></script>
+</body>
+</html>
