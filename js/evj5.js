@@ -31,6 +31,10 @@ const app=new Vue({
 				this.costos.push({precio:this.nuevoPrecio});
 				this.nuevoPrecio='';
 			}
+			if(this.nuevoProducto && this.nuevaCantidad && this.nuevoPrecio){
+		    	this.contador=parseInt(this.contador)+parseInt(this.nuevaCantidad);
+		    	this.total=this.nuevaCantidad*this.nuevoPrecio;
+			}
 		}
 	},
 });
