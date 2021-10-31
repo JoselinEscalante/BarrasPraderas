@@ -103,19 +103,8 @@
 				</div>
 			</div>
 		</div>
-			<h3 class="col-6 offset-3">Tareas completadas {{tareasCompletadas}}</h3>
 		</div>
 		<div class="row">
-			<article class="col-6 offset-3">
-				<button class="btn-primary" @click="contador++" :disabled="contador==100">+</button>
-				<button class="btn-danger" @click="contador--" :disabled="contador==0">-</button>
-				<h3>{{contador}}</h3>
-				<div class="progress mb-2">
-					<div class="progress-bar bg-success" role="progressbar" :style="{'width' :contador+'%'}" :class="color">
-						{{contador}}%
-					</div>
-				</div>
-			</article>
 		</div>
 	</div>
 	</section>
