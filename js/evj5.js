@@ -14,6 +14,9 @@ const app=new Vue({
 			{precio:"$"}
 		],
 		contador:0,
+		subtotal:0,
+		total:0,
+		iva:0,
 	},
 	methods:{
 		agregar: function(){
@@ -33,7 +36,9 @@ const app=new Vue({
 			}
 			if(this.nuevoProducto && this.nuevaCantidad && this.nuevoPrecio){
 		    	this.contador=parseInt(this.contador)+parseInt(this.nuevaCantidad);
-		    	this.total=this.nuevaCantidad*this.nuevoPrecio;
+		    	this.subtotal=this.nuevaCantidad*this.nuevoPrecio;
+			this.iva=this.iva+this.subtotal;
+      			this.total=this.iva+this.iva*0.16;
 			}
 		}
 	},
